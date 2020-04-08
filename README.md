@@ -8,7 +8,7 @@ Run this command on your shell:
 
 ```shell
 git clone https://github.com/ied206/dotfiles.git -o .joveler ~
-./install.sh
+~/.joveler/install.sh
 ```
 
 ## Support
