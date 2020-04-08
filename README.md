@@ -25,12 +25,13 @@ git clone https://github.com/ied206/dotfiles.git ~/.joveler
 
 ## Support
 
+- tmux
+- screen
 - vim
 - zsh
     - zprezto
-    - custom prompt
-- tmux
-- screen
+    - zsh custom prompt  
+    ![zsh custom prompt screenshot](./image/zsh-custom-prompt.png)
 
 ## License
 
