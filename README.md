@@ -2,9 +2,18 @@
 
 The repo contains my personal dotfiles.
 
+## Install
+
+Run this command on your shell:
+
+```shell
+git clone https://github.com/ied206/dotfiles.git -o .joveler ~
+./install.sh
+```
+
 ## Support
 
-- Vim
+- vim
 - zsh
     - zprezto
     - Custom Prompt
