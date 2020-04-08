@@ -8,17 +8,18 @@ The repo contains my personal dotfiles.
 
 Install required programs and frameworks: 
 
-```shell
+```console
 sudo apt update
-sudo apt install git zsh
+sudo apt install git vim zsh tmux screen
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 chsh -s /bin/zsh
 ```
 
 Clone this repo and run `install.sh`:
 
-```shell
-git clone https://github.com/ied206/dotfiles.git -o ~/.joveler
+```console
+git clone https://github.com/ied206/dotfiles.git ~/.joveler
 ~/.joveler/install.sh
 ```
 

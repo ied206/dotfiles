@@ -34,7 +34,7 @@ install_config ".screenrc"
 # Install vim config
 install_config ".vimrc"
 if [[ $? -eq 0 ]]; then
-    echo -e "${tfg_boldyellow}[   INFO]${tfg_reset} Do not forget to run ${tfg_yellow}\":PluginInstall\"${tfg_reset} in vim!"
+    vim +PluginInstall +qall
 fi
 
 # Install zsh config
