@@ -1,6 +1,15 @@
-# dot-joveler
+# Joveler's dotfiles
 
 The repo contains my personal dotfiles.
+
+## Support
+
+- Vim
+- zsh
+    - zprezto
+    - Custom Prompt
+- tmux
+- screen
 
 ## License
 
