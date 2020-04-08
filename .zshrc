@@ -1,3 +1,7 @@
+# Authors:
+#   Hajin Jang
+#
+
 # Force 256 colors
 # - This directive must come before zprezto init!
 #   (Some ssh clients do not advertise 256 color support)
@@ -20,3 +24,4 @@ if [[ -s "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
 fi
 
+# vim: ts=2 sw=2 et

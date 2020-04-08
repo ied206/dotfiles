@@ -1,4 +1,6 @@
+# Authors:
+#   Hajin Jang
+#
+
 # Force 256 color terminal
 term xterm-256color
-
-

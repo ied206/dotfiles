@@ -4,10 +4,21 @@ The repo contains my personal dotfiles.
 
 ## Install
 
-Run this command on your shell:
+### Prerequisite
+
+Install required programs and frameworks: 
 
 ```shell
-git clone https://github.com/ied206/dotfiles.git -o .joveler ~
+sudo apt update
+sudo apt install git zsh
+git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
+chsh -s /bin/zsh
+```
+
+Clone this repo and run `install.sh`:
+
+```shell
+git clone https://github.com/ied206/dotfiles.git -o ~/.joveler
 ~/.joveler/install.sh
 ```
 
@@ -16,11 +27,10 @@ git clone https://github.com/ied206/dotfiles.git -o .joveler ~
 - vim
 - zsh
     - zprezto
-    - Custom Prompt
+    - custom prompt
 - tmux
 - screen
 
 ## License
 
 Licensed under the MIT license.
-

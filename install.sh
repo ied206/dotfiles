@@ -41,7 +41,10 @@ fi
 install_config ".zshrc"
 
 # Install zsh-prezto config
+install_config ".zlogin"
 install_config ".zpreztorc"
+install_config ".zprofile"
+install_config ".zshenv"
 
 # Install custom zprezto theme
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto" ]]; then

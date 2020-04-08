@@ -1,4 +1,8 @@
 " Joveler's vimrc
+"
+" Authors:
+"   Hajin Jang
+"
 
 " =========================================================
 " [Plugin] Vundle
