@@ -1,0 +1,6 @@
+# Gitignore for 
+
+# vim per-machine settings
+vim/custom_plugin.vim
+vim/custom_rc.vim
+

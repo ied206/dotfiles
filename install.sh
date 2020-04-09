@@ -1,5 +1,5 @@
 #!/bin/bash
-BASE="${HOME}/.joveler"
+BASE_DIR="${HOME}/.joveler"
 
 declare -i count=0
 tfg_reset="\e[39m"
@@ -9,18 +9,20 @@ tfg_boldgreen="\e[92m"
 tfg_boldyellow="\e[93m"
 
 function install_config {
-    if [[ -f "${HOME}/$1" ]]; then
-        echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to overwrite existing ${tfg_yellow}$1${tfg_reset}"
+    conf_filename="${1##*/}"
+
+    if [[ -f "${HOME}/${conf_filename}" ]]; then
+        echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to overwrite existing ${tfg_yellow}${conf_filename}${tfg_reset}"
         return 1
     fi
 
-    ln -s "${BASE}/$1" "${HOME}/$1"
+    ln -s "${BASE_DIR}/$1" "${HOME}/${conf_filename}"
     if [[ $? -eq 0 ]]; then
-        echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}$1${tfg_reset}"
+        echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}${conf_filename}${tfg_reset}"
         count=$(( count + 1 ))
         return 0
     else
-        echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to create symlink of ${tfg_yellow}$1${tfg_reset}"
+        echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to create symlink of ${tfg_yellow}${conf_filename}${tfg_reset}"
         return 1
     fi
 }
@@ -32,7 +34,7 @@ install_config ".tmux.conf"
 install_config ".screenrc"
 
 # Install vim config
-install_config ".vimrc"
+install_config "vim/.vimrc"
 if [[ $? -eq 0 ]]; then
     vim +PluginInstall +qall
 fi
