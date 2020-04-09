@@ -3,6 +3,8 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+# Edited by:
+#   Hajin Jang
 #
 
 #
@@ -175,20 +177,19 @@ zstyle ':prezto:module:python:virtualenv' initialize 'yes'
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
 zstyle ':prezto:module:syntax-highlighting' highlighters \
-   'main' \
-   'brackets' \
-   'pattern' \
-   'line' \
-   'root'
-#'cursor' \
+  'main' \
+  'brackets' 
 
 # Set syntax highlighting styles.
-# zstyle ':prezto:module:syntax-highlighting' styles \
-#   'builtin' 'bg=blue' \
-#   'command' 'bg=blue' \
-#   'function' 'bg=blue'
-#
-# Set syntax pattern styles.
+zstyle ':prezto:module:syntax-highlighting' styles \
+  'builtin' 'fg=214' \
+  'command' 'fg=214' \
+  'precommand' 'fg=214' \
+  'function' 'fg=214' \
+  'alias' 'fg=214' \
+  'path' 'fg=226' \
+  'globbing' 'fg=111' 
+  
 # zstyle ':prezto:module:syntax-highlighting' pattern \
 #   'rm*-rf*' 'fg=white,bold,bg=red'
 
