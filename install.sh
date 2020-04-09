@@ -1,5 +1,5 @@
 #!/bin/bash
-BASE_DIR="${HOME}/.joveler"
+BASEDIR="${HOME}/.joveler"
 
 declare -i count=0
 tfg_reset="\e[39m"
@@ -16,7 +16,7 @@ function install_config {
         return 1
     fi
 
-    ln -s "${BASE_DIR}/$1" "${HOME}/${conf_filename}"
+    ln -s "${BASEDIR}/$1" "${HOME}/${conf_filename}"
     if [[ $? -eq 0 ]]; then
         echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}${conf_filename}${tfg_reset}"
         count=$(( count + 1 ))
@@ -53,7 +53,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto" ]]; then
     if [[ -f "${ZDOTDIR:-$HOME}/.zprezto/modules/prompt/functions/prompt_joveler_setup" ]]; then
         echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to overwrite existing ${tfg_yellow}prompt_joveler_setup${tfg_reset}"
     else
-        ln -s "${BASE}/zprezto-prompt/joveler.zsh" "${ZDOTDIR:-$HOME}/.zprezto/modules/prompt/functions/prompt_joveler_setup"
+        ln -s "${BASEDIR}/zprezto-prompt/joveler.zsh" "${ZDOTDIR:-$HOME}/.zprezto/modules/prompt/functions/prompt_joveler_setup"
         if [[ $? -eq 0 ]]; then
             echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}custom prezto theme${tfg_reset}"
         else
