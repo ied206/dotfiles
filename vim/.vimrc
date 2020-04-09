@@ -30,11 +30,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Awesome status bar
-Plugin 'vim-airline/vim-airline'
+Plugin 'itchyny/lightline.vim'
 " Theme
-Plugin 'tomasiser/vim-code-dark'
+Plugin 'peaksea'
 " Secure Modeline
 Plugin 'ciaranm/securemodelines'
+" vim-ployglot
+Plugin 'sheerun/vim-polyglot'
 
 " [*] Source custom plugins
 call SourceIfExists("~/.joveler/vim/custom_plugin.vim")
@@ -55,9 +57,22 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " =========================================================
-" [Plugin] vim-airline
+" [ColorScheme] 
 " =========================================================
-let g:airline#extensions#tabline#enabled = 1
+set background=dark
+colorscheme peaksea
+
+" =========================================================
+" [Plugin] lightline
+" =========================================================
+" Enable lightline status bar
+set laststatus=2
+" Use wombat theme
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
+" Hide vim's default --INSERT--
+set noshowmode
 
 " =========================================================
 " [Plugin] securemodelines
@@ -67,12 +82,6 @@ set nomodeline
 " Use secure version instead!
 let g:secure_modelines_verbose = 0
 let g:secure_modelines_modelines = 5
-
-" =========================================================
-" [ColorScheme] codedark & airline
-" =========================================================
-colorscheme codedark
-let g:airline_theme = 'codedark'
 
 " =========================================================
 " [VIM] General
