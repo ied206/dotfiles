@@ -2,5 +2,10 @@
 #   Hajin Jang
 #
 
-# Force 256 color terminal
+# Wider palette support
 term xterm-256color
+truecolors on
+
+# Force background color refresh (for vim)
+defbce on
+

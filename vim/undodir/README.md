@@ -1,0 +1,2 @@
+# Vim Persistent Undo Directory
+

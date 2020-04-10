@@ -131,6 +131,13 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
+" [*] Persistent Undo
+try
+    set undodir=~/.joveler/vim/undodir
+    set undofile
+catch
+endtry
+
 " =========================================================
 " [VIM] Custom Settings
 " =========================================================

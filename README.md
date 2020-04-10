@@ -2,9 +2,7 @@
 
 The repo contains my personal dotfiles.
 
-## Install
-
-### Prerequisite
+## Prerequisite
 
 Install required programs and frameworks: 
 
@@ -13,14 +11,30 @@ sudo apt update
 sudo apt install git vim zsh tmux screen snapd ctags
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
-chsh -s /bin/zsh
+chsh -s $(which zsh)
 ```
+
+## Install
 
 Clone this repo and run `install.sh`:
 
 ```console
 git clone https://github.com/ied206/dotfiles.git ~/.joveler
 ~/.joveler/install.sh
+```
+
+You can overwrite current settings with `force` argument:
+
+```console
+~/.joveler/install.sh force
+```
+
+## Update
+
+You may update the dotfiles with `update.sh`:
+
+```console
+~/.joveler/update.sh
 ```
 
 ## Support
@@ -30,7 +44,7 @@ git clone https://github.com/ied206/dotfiles.git ~/.joveler
 - vim
 - zsh
     - zprezto
-    - zsh custom prompt  
+    - custom prompt  
     ![zsh custom prompt screenshot](./image/zsh-custom-prompt.png)
 
 ## License

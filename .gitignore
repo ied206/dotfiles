@@ -1,6 +1,9 @@
-# Gitignore for 
+# Gitignore for dotfiles
 
 # vim per-machine settings
 vim/custom_plugin.vim
 vim/custom_rc.vim
+
+# vim undodir
+vim/undodir/
 

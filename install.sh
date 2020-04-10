@@ -1,19 +1,31 @@
 #!/bin/bash
 BASEDIR="${HOME}/.joveler"
 
-# Force install?
+# =========================================================
+# Check force install
+# =========================================================
 ln_force_arg=""
 if [[ ${1} = "force" ]]; then
     ln_force_arg="-f"
 fi
 
-declare -i count=0
+# =========================================================
+# ANSI color codes
+# =========================================================
 tfg_reset="\e[39m"
 tfg_yellow="\e[33m"
 tfg_boldred="\e[91m"
 tfg_boldgreen="\e[92m"
 tfg_boldyellow="\e[93m"
 
+# =========================================================
+# Prepare counter variable
+# =========================================================
+declare -i count=0
+
+# =========================================================
+# Install functions
+# =========================================================
 function install_config {
     conf_filename="${1##*/}"
 
@@ -47,6 +59,9 @@ function install_prezto_prompt {
     fi
 }
 
+# =========================================================
+# Link files
+# =========================================================
 # Install tmux config
 install_config ".tmux.conf"
 
@@ -56,8 +71,8 @@ install_config ".screenrc"
 # Install vim config
 install_config "vim/.vimrc"
 if [[ $? -eq 0 ]]; then
-    vim +PluginInstall +qall
-    vim +PluginClean +qall
+    vim -E -s +PluginInstall +qall
+    vim -E -s +PluginClean +qall
 fi
 
 # Install zsh/prezto config
