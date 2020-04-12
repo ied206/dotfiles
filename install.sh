@@ -91,8 +91,8 @@ install_config ".screenrc"
 # Install vim config
 install_config "vim/.vimrc"
 if [[ $? -eq 0 ]]; then
-    vim -E -s +PluginInstall +qall
-    vim -E -s +PluginClean +qall
+    vim +PluginInstall +qall
+    vim +PluginClean +qall
 fi
 
 # Install zsh/prezto config
