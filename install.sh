@@ -68,7 +68,7 @@ function check_clone_github_repo {
         echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Checked ${tfg_yellow}${repo}${tfg_reset}"
     else
         echo -e "${tfg_boldgreen}[   INFO]${tfg_reset} Cloning ${tfg_yellow}${repo}${tfg_reset}..."
-        git clone ${clone_url} ${dest_dir}
+        git clone --recursive ${clone_url} ${dest_dir}
     fi
 }
 
