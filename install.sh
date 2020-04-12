@@ -2,7 +2,7 @@
 BASEDIR="${HOME}/.joveler"
 
 # =========================================================
-# Check force install
+# Check orce install
 # =========================================================
 ln_force_arg=""
 if [[ ${1} = "force" ]]; then
@@ -24,7 +24,7 @@ tfg_boldyellow="\e[93m"
 declare -i count=0
 
 # =========================================================
-# Install functions
+# Functions
 # =========================================================
 function install_config {
     conf_filename="${1##*/}"
@@ -58,6 +58,26 @@ function install_prezto_prompt {
         return 1
     fi
 }
+
+function check_clone_github_repo {
+    repo="${1}"
+    clone_url="https://github.com/${repo}.git"
+    dest_dir="${2}"
+
+    if [[ -d "${dest_dir}/.git" ]]; then
+        echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Checked ${tfg_yellow}${repo}${tfg_reset}"
+    else
+        echo -e "${tfg_boldgreen}[   INFO]${tfg_reset} Cloning ${tfg_yellow}${repo}${tfg_reset}..."
+        git clone ${clone_url} ${dest_dir}
+    fi
+}
+
+# =========================================================
+# Check and install required git repos
+# =========================================================
+# Install tmux config
+check_clone_github_repo "sorin-ionescu/prezto" "${HOME}/.zprezto"
+check_clone_github_repo "VundleVim/Vundle.vim" "${HOME}/.vim/bundle/Vundle.vim"
 
 # =========================================================
 # Link files
