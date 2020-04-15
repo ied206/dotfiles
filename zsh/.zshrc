@@ -24,4 +24,9 @@ if [[ -s "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
 fi
 
+# Source custom settings
+if [[ -s "${HOME}/.joveler/zsh/custom_rc.zsh" ]]; then
+  source "${HOME}/.joveler/zsh/custom_rc.zsh"
+fi
+
 # vim: ts=2 sw=2 et

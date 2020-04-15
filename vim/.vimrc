@@ -37,6 +37,9 @@ Plugin 'peaksea'
 Plugin 'ciaranm/securemodelines'
 " vim-ployglot
 Plugin 'sheerun/vim-polyglot'
+" Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " [*] Source custom plugins
 call SourceIfExists("~/.joveler/vim/custom_plugin.vim")
@@ -87,7 +90,9 @@ let g:secure_modelines_modelines = 5
 " [VIM] General
 " =========================================================
 " [*] Print line numbers
-set nu
+set number
+noremap <F3> :set invnumber<CR>
+inoremap <F3> <C-O>:set invnumber<CR>
 
 " [*] Toggle paste mode with F2
 set pastetoggle=<F2>
