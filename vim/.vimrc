@@ -91,8 +91,11 @@ let g:secure_modelines_modelines = 5
 " =========================================================
 " [*] Print line numbers
 set number
+set relativenumber
 noremap <F3> :set invnumber<CR>
 inoremap <F3> <C-O>:set invnumber<CR>
+noremap <F4> :set relativenumber!<CR>
+inoremap <F4> <C-O>:set relativenumber!<CR>
 
 " [*] Toggle paste mode with F2
 set pastetoggle=<F2>
