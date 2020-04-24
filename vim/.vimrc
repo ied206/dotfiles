@@ -87,6 +87,18 @@ let g:secure_modelines_verbose = 0
 let g:secure_modelines_modelines = 5
 
 " =========================================================
+" [Plugin] vim-markdown
+" =========================================================
+" Disable default markdown folding
+let g:vim_markdown_folding_disabled = 1
+
+" =========================================================
+" [Plugin] vim-ployglot
+" =========================================================
+" graphql causes problem when loading json files
+let g:polyglot_disabled = ['graphql']
+
+" =========================================================
 " [VIM] General
 " =========================================================
 " [*] Print line numbers
@@ -145,6 +157,10 @@ try
     set undofile
 catch
 endtry
+
+" [*] Use Home key like ^ (or 0w)
+noremap <Home> ^
+inoremap <Home> <Esc>^i
 
 " =========================================================
 " [VIM] Custom Settings
