@@ -40,6 +40,8 @@ Plugin 'sheerun/vim-polyglot'
 " Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+" Autodetect tab & space
+Plugin 'tpope/vim-sleuth'
 
 " [*] Source custom plugins
 call SourceIfExists("~/.joveler/vim/custom_plugin.vim")
@@ -76,6 +78,11 @@ let g:lightline = {
     \ }
 " Hide vim's default --INSERT--
 set noshowmode
+" Show current buffer settings
+let g:lightline.tabline = {
+    \ 'left': [ ['tabs'] ],
+    \ 'right': [ ['close'] ],
+    \ }
 
 " =========================================================
 " [Plugin] securemodelines
@@ -132,6 +139,8 @@ set shiftwidth=4
 set expandtab
 " For files written by others
 set smarttab
+set autoindent
+set smartindent
 
 " [*] Beep
 set noerrorbells
