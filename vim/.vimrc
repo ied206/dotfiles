@@ -42,6 +42,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 " Autodetect tab & space
 Plugin 'tpope/vim-sleuth'
+" Enhanced C++ Highlighting
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " [*] Source custom plugins
 call SourceIfExists("~/.joveler/vim/custom_plugin.vim")
@@ -104,6 +106,17 @@ let g:vim_markdown_folding_disabled = 1
 " =========================================================
 " graphql causes problem when loading json files
 let g:polyglot_disabled = ['graphql']
+
+" =========================================================
+" [Plugin] vim-cpp-enhanced-highlight
+" =========================================================
+" Enable optional features
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_template_highlight = 1
+
 
 " =========================================================
 " [VIM] General

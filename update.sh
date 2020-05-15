@@ -13,7 +13,7 @@ tfg_boldyellow="\e[93m"
 # Pull and rebase files
 # =========================================================
 git pull --rebase --stat origin master
-local pull_success=$?
+pull_success=$?
 if [[ $? -eq 0 ]]; then
     echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully updated ${tfg_yellow}dotfiles${tfg_reset}"
 else
