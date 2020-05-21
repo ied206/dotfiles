@@ -123,7 +123,7 @@ let g:cpp_experimental_template_highlight = 1
 " =========================================================
 " [*] Print line numbers
 set number
-set relativenumber
+"set relativenumber
 noremap <F3> :set invnumber<CR>
 inoremap <F3> <C-O>:set invnumber<CR>
 noremap <F4> :set relativenumber!<CR>
