@@ -132,6 +132,9 @@ inoremap <F4> <C-O>:set relativenumber!<CR>
 " [*] Toggle paste mode with F2
 set pastetoggle=<F2>
 
+" [*] Syntax Highlighting
+syntax on
+
 " [*] Autoread
 set autoread
 
