@@ -79,7 +79,6 @@ function check_clone_github_repo {
 # =========================================================
 # Install zsh-preszto & vim-plug
 check_clone_github_repo "sorin-ionescu/prezto" "${HOME}/.zprezto"
-check_clone_github_repo "VundleVim/Vundle.vim" "${HOME}/.vim/bundle/Vundle.vim"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 # =========================================================
