@@ -1,6 +1,6 @@
 #!/bin/bash
 BASEDIR="${HOME}/.joveler"
-#ZPRESTODIR="${HOME}/.zprezto"
+[[ -z "${ZPRESTODIR}" ]] && ZPRESTODIR="${HOME}/.zprezto"
 
 # =========================================================
 # ANSI color codes
@@ -26,6 +26,9 @@ popd > /dev/null
 # =========================================================
 # Update vim plugins
 # =========================================================
+if [[ ! -f "~/.vim/autoload/plug.vim" ]]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+fi
 vim +PlugUpdate +PlugClean +PlugUpgrade +qall
 
 if [[ $? -eq 0 ]]; then
