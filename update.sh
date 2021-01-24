@@ -1,5 +1,6 @@
 #!/bin/bash
 BASEDIR="${HOME}/.joveler"
+VIMPLUG="${HOME}/.vim/autoload/plug.vim"
 [[ -z "${ZPRESTODIR}" ]] && ZPRESTODIR="${HOME}/.zprezto"
 
 # =========================================================
@@ -26,7 +27,7 @@ popd > /dev/null
 # =========================================================
 # Update vim plugins
 # =========================================================
-if [[ ! -f "~/.vim/autoload/plug.vim" ]]; then
+if [[ ! -f "${VIMPLUG}" ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 fi
 vim +PlugUpdate +PlugClean +PlugUpgrade +qall
