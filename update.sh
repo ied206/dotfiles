@@ -14,38 +14,37 @@ tfg_boldyellow="\e[93m"
 # =========================================================
 # Pull and rebase files
 # =========================================================
-pushd "${BASEDIR}"
+pushd "${BASEDIR}" > /dev/null
 git pull --rebase --stat origin master
-pull_result=$?
-if [[ ${pull_result} -eq 0 ]]; then
-    echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully pulled ${tfg_yellow}dotfiles${tfg_reset}"
+if [[ $? -eq 0 ]]; then
+    echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully updated ${tfg_yellow}dotfiles${tfg_reset}"
 else
     echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to update ${tfg_yellow}dotfiles${tfg_reset}"
 fi
-popd
-
-if [[ ${pull_result} -ne 0 ]]; then
-    exit
-fi
+popd > /dev/null
 
 # =========================================================
 # Update vim plugins
 # =========================================================
-vim +PlugUpdate +qall
-vim +PlugClean +qall
-vim +PlugUpgrade +qall
+vim +PlugUpdate +PlugClean +PlugUpgrade +qall
+
+if [[ $? -eq 0 ]]; then
+    echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully updated ${tfg_yellow}vimrc${tfg_reset}"
+else
+    echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to update ${tfg_yellow}vimrc${tfg_reset}"
+fi
 
 # =========================================================
 # Pull zprezto
 # =========================================================
-pushd "${ZPRESTODIR}"
+pushd "${ZPRESTODIR}" > /dev/null
 git pull
-pull_result=$?
+zprezto_result=$?
 git submodule update --init --recursive
-sub_result=$?
-if [[ ${pull_result} -eq 0 && ${sub_result} -eq 0 ]]; then
+zprezto_result=$(( zprezto_result && $? ))
+if [[ ${zprezto_result} -eq 0 ]]; then
     echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully updated ${tfg_yellow}zprezto${tfg_reset}"
 else
     echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to update ${tfg_yellow}zprezto${tfg_reset}"
 fi
-popd
+popd > /dev/null

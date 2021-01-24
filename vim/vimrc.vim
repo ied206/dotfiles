@@ -5,6 +5,11 @@
 "
 
 " =========================================================
+" [VIM] Init
+" =========================================================
+set nocompatible
+
+" =========================================================
 " [VIM] Helper Functions
 " =========================================================
 " [*] Source external vimrc if exists
@@ -37,9 +42,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-sleuth'
 " Enhanced C++ Highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
-
-" [*] Source custom plugins
-call SourceIfExists("~/.joveler/vim/custom_plugin.vim")
 
 " =========================================================
 " [Plugin] lightline
@@ -77,7 +79,7 @@ let g:vim_markdown_folding_disabled = 1
 " [Plugin] vim-ployglot
 " =========================================================
 " graphql causes problem when loading json files
-let g:polyglot_disabled = ['graphql']
+let g:polyglot_disabled = ['graphql', 'log', 'csv']
 
 " =========================================================
 " [Plugin] vim-cpp-enhanced-highlight
@@ -90,18 +92,22 @@ let g:cpp_posix_standard = 1
 let g:cpp_experimental_template_highlight = 1
 
 " =========================================================
+" [Plugin] Custom Plugin Settings
+" =========================================================
+call SourceIfExists("~/.joveler/vim/custom_plugin.vim")
+
+" =========================================================
 " [Plugin] Plug (END)
 " =========================================================
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-autocmd BufRead vim.rc,custom_rc.vim,custom_plugin.vim :setfiletype vim
 
 " =========================================================
 " [ColorScheme] 
 " =========================================================
 set background=dark
 "colorscheme peaksea
-colorscheme wombat256mod
+silent! colorscheme wombat256mod
 
 " =========================================================
 " [VIM] General
