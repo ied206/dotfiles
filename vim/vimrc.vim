@@ -28,9 +28,8 @@ call plug#begin('~/.vim/plugged')
 " [*] Register plugins
 " Awesome status bar
 Plug 'itchyny/lightline.vim'
-" Theme
-"Plug 'peaksea'
-Plug 'vim-scripts/wombat256.vim'
+" Theme (custom peaksea & wombat)
+Plug '~/.joveler/vim/colorschemes'
 " Secure Modeline
 Plug 'ciaranm/securemodelines'
 " vim-ployglot
@@ -106,8 +105,7 @@ call plug#end()
 " [ColorScheme] 
 " =========================================================
 set background=dark
-"colorscheme peaksea
-silent! colorscheme wombat256mod
+silent! colorscheme wombat
 
 " =========================================================
 " [VIM] General
@@ -130,12 +128,17 @@ syntax on
 set autoread
 
 " [*] Case insensitive search
+" To force case sensitivity on search command,
+" append '\C' for case-sensitive or '\c' for case-insensitive.
 set ignorecase
 set smartcase
 
 " [*] Mouse support
 set mousemodel=extend
 set mouse=a
+
+" [*] Cursorline
+set cursorline
 
 " [*] Indentation
 " Use 4 space for \t
