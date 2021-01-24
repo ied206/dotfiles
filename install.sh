@@ -2,7 +2,7 @@
 BASEDIR="${HOME}/.joveler"
 
 # =========================================================
-# Check orce install
+# Check force install
 # =========================================================
 ln_force_arg=""
 if [[ ${1} = "force" ]]; then
@@ -28,20 +28,22 @@ declare -i count=0
 # =========================================================
 function install_config {
     conf_filename="${1##*/}"
+    dest_filename="${2##*/}"
 
-    ln -s ${ln_force_arg} "${BASEDIR}/$1" "${HOME}/${conf_filename}"
+    ln -s ${ln_force_arg} "${BASEDIR}/${1}" "${HOME}/${2}"
     if [[ $? -eq 0 ]]; then
-        echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}${conf_filename}${tfg_reset}"
+        echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}${dest_filename}${tfg_reset}"
         count=$(( count + 1 ))
         return 0
     else
-        echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to create symlink of ${tfg_yellow}${conf_filename}${tfg_reset}"
+        echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to create symlink of ${tfg_yellow}${dest_filename}${tfg_reset}"
         return 1
     fi
 }
 
 function install_prezto_prompt {
-    conf_filename="${1##*/}"
+    conf_filepath="${1##*/}"
+    dest_filename="${2##*/}"
 
     if [[ -s "${HOME}/.zprezto" ]]; then
         ln -s ${ln_force_arg} "${BASEDIR}/${1}" "${HOME}/.zprezto/modules/prompt/functions/prompt_${2}_setup"
@@ -50,7 +52,7 @@ function install_prezto_prompt {
             count=$(( count + 1 ))
             return 0
         else
-            echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to create symlink of ${tfg_yellow}${conf_filename}${tfg_reset}"
+            echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to create symlink of ${tfg_yellow}${dest_filename}${tfg_reset}"
             return 1
         fi
     else
@@ -75,32 +77,33 @@ function check_clone_github_repo {
 # =========================================================
 # Check and install required git repos
 # =========================================================
-# Install tmux config
+# Install zsh-preszto & vim-plug
 check_clone_github_repo "sorin-ionescu/prezto" "${HOME}/.zprezto"
 check_clone_github_repo "VundleVim/Vundle.vim" "${HOME}/.vim/bundle/Vundle.vim"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
 # =========================================================
 # Link files
 # =========================================================
 # Install tmux config
-install_config ".tmux.conf"
+install_config "tmux/tmux.conf" ".tmux.conf"
 
 # Install screen config
-install_config ".screenrc"
+install_config "screen/screen.rc" ".screenrc"
 
 # Install vim config
-install_config "vim/.vimrc"
+install_config "vim/vimrc.vim" ".vimrc"
 if [[ $? -eq 0 ]]; then
-    vim +PluginInstall +qall
-    vim +PluginClean +qall
+    vim +PlugInstall +qall
+    vim +PlugClean +qall
 fi
 
 # Install zsh/prezto config
-install_config "zsh/.zshrc"
-install_config "zsh/.zlogin"
-install_config "zsh/.zpreztorc"
-install_config "zsh/.zprofile"
-install_config "zsh/.zshenv"
+install_config "zsh/zsh.rc" ".zshrc"
+install_config "zsh/zlogin.rc" ".zlogin"
+install_config "zsh/zprezto.rc" ".zpreztorc"
+install_config "zsh/zprofile.rc" ".zprofile"
+install_config "zsh/zshenv.rc" ".zshenv"
 install_prezto_prompt "zsh/prezto-prompt/joveler.zsh" "joveler"
 
 # Report result

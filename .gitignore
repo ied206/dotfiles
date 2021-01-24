@@ -1,5 +1,8 @@
 # Gitignore for dotfiles
 
+# zsh per-machine settings
+zsh/custom_rc.zsh
+
 # vim per-machine settings
 vim/custom_plugin.vim
 vim/custom_rc.vim

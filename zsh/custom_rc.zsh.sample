@@ -1,0 +1,3 @@
+# Copy this file as 'custom.rc' to enable per-machine custom zsh settings.
+# The file will overwrite main ~/.zshrc settings.
+#

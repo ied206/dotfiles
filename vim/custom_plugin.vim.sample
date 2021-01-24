@@ -1,0 +1,4 @@
+" Copy this file as 'custom_plugin.vim' to install per-machine custom vim plugin.
+" The file will be run under the context of vundle.
+"
+

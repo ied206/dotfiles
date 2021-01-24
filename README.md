@@ -42,9 +42,10 @@ You may update the dotfiles with `update.sh`:
 - vim
 - zsh
     - zprezto
-    - custom prompt  
+    - custom prompt<br>
     ![zsh custom prompt screenshot](./image/zsh-custom-prompt.png)
 
 ## License
 
 Licensed under the MIT license.
+

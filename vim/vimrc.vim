@@ -15,59 +15,31 @@ function! SourceIfExists(file)
 endfunction
 
 " =========================================================
-" [Plugin] Vundle
+" [Plugin] Plug (BEGIN)
 " =========================================================
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
 
 " [*] Register plugins
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
 " Awesome status bar
-Plugin 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 " Theme
-Plugin 'peaksea'
+"Plug 'peaksea'
+Plug 'vim-scripts/wombat256.vim'
 " Secure Modeline
-Plugin 'ciaranm/securemodelines'
+Plug 'ciaranm/securemodelines'
 " vim-ployglot
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 " Markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " Autodetect tab & space
-Plugin 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 " Enhanced C++ Highlighting
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " [*] Source custom plugins
 call SourceIfExists("~/.joveler/vim/custom_plugin.vim")
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" =========================================================
-" [ColorScheme] 
-" =========================================================
-set background=dark
-colorscheme peaksea
 
 " =========================================================
 " [Plugin] lightline
@@ -117,6 +89,19 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_experimental_template_highlight = 1
 
+" =========================================================
+" [Plugin] Plug (END)
+" =========================================================
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+autocmd BufRead vim.rc,custom_rc.vim,custom_plugin.vim :setfiletype vim
+
+" =========================================================
+" [ColorScheme] 
+" =========================================================
+set background=dark
+"colorscheme peaksea
+colorscheme wombat256mod
 
 " =========================================================
 " [VIM] General
