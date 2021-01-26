@@ -32,10 +32,15 @@ Plug 'itchyny/lightline.vim'
 Plug '~/.joveler/vim/colorschemes'
 " Secure Modeline
 Plug 'ciaranm/securemodelines'
-" vim-ployglot (v4.17.0 fails to load on Vim 7.4)
+" vim-ployglot
 " Includes 'tpope/vim-slueth' functionality (indent autodetection)
 " Includes 'tpope/vim-sensible'
-Plug 'sheerun/vim-polyglot', { 'tag': 'v4.16.0' }
+if v:version >= 800
+    Plug 'sheerun/vim-polyglot'
+else
+    " v4.17.0 fails to load on Vim 7.4
+    Plug 'sheerun/vim-polyglot', { 'tag': 'v4.16.0' }
+endif
 " Enhanced C++ Highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
 
