@@ -32,13 +32,10 @@ Plug 'itchyny/lightline.vim'
 Plug '~/.joveler/vim/colorschemes'
 " Secure Modeline
 Plug 'ciaranm/securemodelines'
-" vim-ployglot
-Plug 'sheerun/vim-polyglot'
-" Markdown
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-" Autodetect tab & space
-Plug 'tpope/vim-sleuth'
+" vim-ployglot (v4.17.0 fails to load on Vim 7.4)
+" Includes 'tpope/vim-slueth' functionality (indent autodetection)
+" Includes 'tpope/vim-sensible'
+Plug 'sheerun/vim-polyglot', { 'tag': 'v4.16.0' }
 " Enhanced C++ Highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
 
@@ -69,15 +66,10 @@ let g:secure_modelines_verbose = 0
 let g:secure_modelines_modelines = 5
 
 " =========================================================
-" [Plugin] vim-markdown
-" =========================================================
-" Disable default markdown folding
-let g:vim_markdown_folding_disabled = 1
-
-" =========================================================
 " [Plugin] vim-ployglot
 " =========================================================
-" graphql causes problem when loading json files
+" 'graphql' causes problem when loading json files
+" If HTTP Cookie is too long, 'log' causes hang
 let g:polyglot_disabled = ['graphql', 'log', 'csv']
 
 " =========================================================
@@ -105,6 +97,7 @@ call plug#end()
 " [ColorScheme] 
 " =========================================================
 set background=dark
+" Avoid init error when running PlugInstall for a first time
 silent! colorscheme wombat
 
 " =========================================================
@@ -112,7 +105,6 @@ silent! colorscheme wombat
 " =========================================================
 " [*] Print line numbers
 set number
-"set relativenumber
 noremap <F3> :set invnumber<CR>
 inoremap <F3> <C-O>:set invnumber<CR>
 noremap <F4> :set relativenumber!<CR>
