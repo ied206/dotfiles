@@ -8,7 +8,7 @@ Install required programs and frameworks:
 
 ```console
 sudo apt update
-sudo apt install git vim zsh tmux screen ctags 
+sudo apt install git vim zsh tmux screen wget curl universal-ctags
 chsh -s $(which zsh)
 ```
 
