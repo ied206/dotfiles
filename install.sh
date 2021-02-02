@@ -2,11 +2,11 @@
 BASEDIR="${HOME}/.joveler"
 
 # =========================================================
-# Check force install
+# Check parameter 'bash'
 # =========================================================
-ln_force_arg=""
-if [[ ${1} = "force" ]]; then
-    ln_force_arg="-f"
+shell_bash=0
+if [[ ${1} = "bash" ]]; then
+    shell_bash=1
 fi
 
 # =========================================================
@@ -30,7 +30,7 @@ function install_config {
     conf_filename="${1##*/}"
     dest_filename="${2##*/}"
 
-    ln -s ${ln_force_arg} "${BASEDIR}/${1}" "${HOME}/${2}"
+    ln -s -f "${BASEDIR}/${1}" "${HOME}/${2}"
     if [[ $? -eq 0 ]]; then
         echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}${dest_filename}${tfg_reset}"
         count=$(( count + 1 ))
@@ -46,7 +46,7 @@ function install_prezto_prompt {
     dest_filename="${2##*/}"
 
     if [[ -s "${HOME}/.zprezto" ]]; then
-        ln -s ${ln_force_arg} "${BASEDIR}/${1}" "${HOME}/.zprezto/modules/prompt/functions/prompt_${2}_setup"
+        ln -s -f "${BASEDIR}/${1}" "${HOME}/.zprezto/modules/prompt/functions/prompt_${2}_setup"
         if [[ $? -eq 0 ]]; then
             echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}custom prezto theme${tfg_reset}"
             count=$(( count + 1 ))
@@ -97,12 +97,17 @@ if [[ $? -eq 0 ]]; then
 fi
 
 # Install zsh/prezto config
-install_config "zsh/zsh.rc" ".zshrc"
-install_config "zsh/zlogin.rc" ".zlogin"
-install_config "zsh/zprezto.rc" ".zpreztorc"
-install_config "zsh/zprofile.rc" ".zprofile"
-install_config "zsh/zshenv.rc" ".zshenv"
+install_config "zsh/zshrc.zsh" ".zshrc"
+install_config "zsh/zlogin.zsh" ".zlogin"
+install_config "zsh/zpreztorc.zsh" ".zpreztorc"
+install_config "zsh/zprofile.zsh" ".zprofile"
+install_config "zsh/zshenv.zsh" ".zshenv"
 install_prezto_prompt "zsh/prezto-prompt/joveler.zsh" "joveler"
+
+# Install bash config
+if [[ ${shell_bash} -eq 1 ]]; then
+    install_config "bash/bash.bashrc" ".bashrc"
+fi
 
 # Report result
 echo -e "Succesfully installed [${tfg_boldyellow}${count}${tfg_reset}] configs & files."

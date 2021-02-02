@@ -1,1 +1,0 @@
-/home/joveler/.joveler/vim/.vimrc

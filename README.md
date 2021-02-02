@@ -21,10 +21,10 @@ git clone https://github.com/ied206/dotfiles.git ~/.joveler
 ~/.joveler/install.sh
 ```
 
-You can overwrite current settings with `force` argument:
+The install script does not setup `.bashrc` by default. To overwrite it, pass `bash` argument:
 
 ```console
-~/.joveler/install.sh force
+~/.joveler/install.sh bash
 ```
 
 ## Update
@@ -44,6 +44,7 @@ You may update the dotfiles with `update.sh`:
     - zprezto
     - custom prompt<br>
     ![zsh custom prompt screenshot](./image/zsh-custom-prompt.png)
+- bash
 
 ## License
 

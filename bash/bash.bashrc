@@ -150,3 +150,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Source custom settings
+if [[ -s "${HOME}/.joveler/bash/custom_rc.bashrc" ]]; then
+  source "${HOME}/.joveler/bash/custom_rc.bashrc"
+fi
