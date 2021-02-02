@@ -3,10 +3,12 @@
 # zsh per-machine settings
 zsh/custom_rc.zsh
 
+# bash per-machine settings
+bash/custom_rc.bashrc
+
 # vim per-machine settings
 vim/custom_plugin.vim
 vim/custom_rc.vim
 
 # vim undodir
 vim/undodir/
-
