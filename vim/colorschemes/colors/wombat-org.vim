@@ -1,11 +1,4 @@
 " Vim color file
-" =============================================================================
-" Modified by Hajin Jang
-" Last Change: 2021-01-25
-" Based On: https://www.vim.org/scripts/script.php?script_id=2465 (wombat256mod)
-" ChangeLog:
-" - Rename colors_name into 'wombat' from 'wombat256mod'
-" =============================================================================
 " Original Maintainer:  Lars H. Nielsen (dengmao@gmail.com)
 " Last Change:  2010-07-23
 "
@@ -23,7 +16,7 @@ if version > 580
 	endif
 endif
 
-"let colors_name = "wombat"
+"let colors_name = "wombat256mod"
 let g:colors_name = expand("<sfile>:t:r")
 
 
@@ -39,7 +32,6 @@ hi StatusLine	ctermfg=230		ctermbg=238		cterm=none		guifg=#ffffd7	guibg=#444444	
 hi VertSplit	ctermfg=238		ctermbg=238		cterm=none		guifg=#444444	guibg=#444444	gui=none
 hi StatusLineNC	ctermfg=241		ctermbg=238		cterm=none		guifg=#857b6f	guibg=#444444	gui=none
 hi LineNr		ctermfg=241		ctermbg=232		cterm=none		guifg=#857b6f	guibg=#080808	gui=none
-hi CustomLineNr	ctermfg=145	ctermbg=NONE	cterm=NONE
 hi SpecialKey	ctermfg=241		ctermbg=235		cterm=none		guifg=#626262	guibg=#2b2b2b	gui=none
 hi WarningMsg	ctermfg=203										guifg=#ff5f55
 hi ErrorMsg		ctermfg=196		ctermbg=236		cterm=bold		guifg=#ff2026	guibg=#3a3a3a	gui=bold
