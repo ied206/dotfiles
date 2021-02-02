@@ -76,7 +76,8 @@ function __joveler_parse_git_branch__()
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' # '(master)'
 }
 
-PS1='${debian_chroot:+($debian_chroot)}' # chroot
+PS1='\n' # newline
+PS1="$PS1"'${debian_chroot:+($debian_chroot)}' # chroot
 if [ "$color_prompt" = yes ]; then
 	if [[ $UID -eq 0 ]]; then
 		PS1="$PS1"'\[\033[01;31m\]\u@\h:\[\033[00m\]'  						    # username@host (green)
