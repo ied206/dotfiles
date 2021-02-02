@@ -82,12 +82,12 @@ if [ "$color_prompt" = yes ]; then
 		PS1="$PS1"'\[\033[01;31m\]\u@\h:\[\033[00m\]'  						    # username@host (green)
 		PS1="$PS1"'\[\033[01;34m\]\w\[\033[00m\]'                               # pwd (blue)
 		PS1="$PS1"' \[\033[01;33m\]$(__joveler_parse_git_branch__)\[\033[00m\]' # git branch (yellow)
-		PS1="$PS1"'\n$ '                                                        # terminator
+		PS1="$PS1"'\n# '                                                        # terminator
 	else
 		PS1="$PS1"'\[\033[01;32m\]\u@\h:\[\033[00m\]'  						    # username@host (red)
 		PS1="$PS1"'\[\033[01;34m\]\w\[\033[00m\]'                               # pwd (blue)
 		PS1="$PS1"' \[\033[01;33m\]$(__joveler_parse_git_branch__)\[\033[00m\]' # git branch (yellow)
-		PS1="$PS1"'\n# '                                                        # terminator
+		PS1="$PS1"'\n$ '                                                        # terminator
 	fi
 else
 	PS1="$PS1"'\u@\h:'  						    # username@host
