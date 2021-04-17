@@ -35,14 +35,19 @@ Plug 'ciaranm/securemodelines'
 " vim-ployglot
 " Includes 'tpope/vim-slueth' functionality (indent autodetection)
 " Includes 'tpope/vim-sensible'
-if v:version >= 800
-    Plug 'sheerun/vim-polyglot'
-else
-    " v4.17.0 fails to load on Vim 7.4
-    Plug 'sheerun/vim-polyglot', { 'tag': 'v4.16.0' }
-endif
+Plug 'sheerun/vim-polyglot'
 " Enhanced C++ Highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
+
+" =========================================================
+" [Plugin] Plug - Conditional
+" =========================================================
+"if v:version >= 800
+"    Plug 'sheerun/vim-polyglot'
+"else
+"    " v4.17.0 fails to load on Vim 7.4
+"    Plug 'sheerun/vim-polyglot', { 'tag': 'v4.16.0' }
+"endif
 
 " =========================================================
 " [Plugin] lightline
