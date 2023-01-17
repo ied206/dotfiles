@@ -29,4 +29,12 @@ if [[ -s "${HOME}/.joveler/zsh/custom_rc.zsh" ]]; then
   source "${HOME}/.joveler/zsh/custom_rc.zsh"
 fi
 
+# pip packages in PATH
+if [[ -s "${HOME}/.local/bin" ]]; then
+  export PATH=${PATH}:${HOME}/.local/bin
+fi
+
+# Alias for .NET 6+
+alias dotnet-test-verbose="dotnet test -l \"console;verbosity=detailed\""
+
 # vim: ts=2 sw=2 et
