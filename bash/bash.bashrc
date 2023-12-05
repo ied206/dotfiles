@@ -18,6 +18,9 @@ esac
 # =============================================================================
 # Modified by Joveler
 export TERM=xterm-256color
+# Shell working directory report
+# https://github.com/Eugeny/tabby/wiki/Shell-working-directory-reporting
+export PS1="$PS1\[\e]1337;CurrentDir="'$(pwd)\a\]'
 # =============================================================================
 
 # don't put duplicate lines or lines starting with space in the history.
