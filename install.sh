@@ -45,7 +45,8 @@ function copy_config {
     conf_filename="${1##*/}"
     dest_filename="${2##*/}"
 
-    mv "${HOME}/${2}" "${HOME}/${2}_bak"
+    cp "${HOME}/${2}" "${HOME}/${2}_bak"
+    rm -f "${HOME}/${2}"
     cp -f "${BASEDIR}/${1}" "${HOME}/${2}"
     if [[ $? -eq 0 ]]; then
         echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}${dest_filename}${tfg_reset}"
