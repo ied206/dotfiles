@@ -41,9 +41,12 @@ fi
 # =========================================================
 # Pull zprezto
 # =========================================================
+# Use zprezto-update instead?
 pushd "${ZPRESTODIR}" > /dev/null
 git pull
 zprezto_result=$?
+git submodule sync --recursive
+zprezto_result=$(( zprezto_result && $? ))
 git submodule update --init --recursive
 zprezto_result=$(( zprezto_result && $? ))
 if [[ ${zprezto_result} -eq 0 ]]; then
