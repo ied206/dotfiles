@@ -26,11 +26,26 @@ declare -i count=0
 # =========================================================
 # Functions
 # =========================================================
-function install_config {
+function symlink_config {
     conf_filename="${1##*/}"
     dest_filename="${2##*/}"
 
     ln -s -f "${BASEDIR}/${1}" "${HOME}/${2}"
+    if [[ $? -eq 0 ]]; then
+        echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}${dest_filename}${tfg_reset}"
+        count=$(( count + 1 ))
+        return 0
+    else
+        echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to create symlink of ${tfg_yellow}${dest_filename}${tfg_reset}"
+        return 1
+    fi
+}
+
+function copy_config {
+    conf_filename="${1##*/}"
+    dest_filename="${2##*/}"
+
+    cp -f "${BASEDIR}/${1}" "${HOME}/${2}"
     if [[ $? -eq 0 ]]; then
         echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}${dest_filename}${tfg_reset}"
         count=$(( count + 1 ))
@@ -85,28 +100,28 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.
 # Link files
 # =========================================================
 # Install tmux config
-install_config "tmux/tmux.conf" ".tmux.conf"
+symlink_config "tmux/tmux.conf" ".tmux.conf"
 
 # Install screen config
-install_config "screen/screen.rc" ".screenrc"
+symlink_config "screen/screen.rc" ".screenrc"
 
 # Install vim config
-install_config "vim/vimrc.vim" ".vimrc"
+symlink_config "vim/vimrc.vim" ".vimrc"
 if [[ $? -eq 0 ]]; then
     vim +PlugInstall +qall
 fi
 
 # Install zsh/prezto config
-install_config "zsh/zshrc.zsh" ".zshrc"
-install_config "zsh/zlogin.zsh" ".zlogin"
-install_config "zsh/zpreztorc.zsh" ".zpreztorc"
-install_config "zsh/zprofile.zsh" ".zprofile"
-install_config "zsh/zshenv.zsh" ".zshenv"
+copy_config "zsh/local_zshrc.zsh" ".zshrc"
+copy_config "zsh/local_zlogin.zsh" ".zlogin"
+copy_config "zsh/local_zpreztorc.zsh" ".zpreztorc"
+copy_config "zsh/local_zprofile.zsh" ".zprofile"
+copy_config "zsh/local_zshenv.zsh" ".zshenv"
 install_prezto_prompt "zsh/prezto-prompt/joveler.zsh" "joveler"
 
 # Install bash config
 if [[ ${shell_bash} -eq 1 ]]; then
-    install_config "bash/bash.bashrc" ".bashrc"
+    symlink_config "bash/bash.bashrc" ".bashrc"
 fi
 
 # Report result
