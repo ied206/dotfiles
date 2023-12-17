@@ -16,17 +16,12 @@ fi
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
-# noclobber
+# Disable noclobber (prevents '>' overwriting existing files)
 set +o noclobber
 
 # rust - cargo
 if [[ -s "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
-fi
-
-# Source custom settings
-if [[ -s "${HOME}/.joveler/zsh/custom_rc.zsh" ]]; then
-  source "${HOME}/.joveler/zsh/custom_rc.zsh"
 fi
 
 # pip packages in PATH

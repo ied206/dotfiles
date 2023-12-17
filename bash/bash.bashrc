@@ -155,7 +155,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Source custom settings
-if [[ -s "${HOME}/.joveler/bash/custom_rc.bashrc" ]]; then
-  source "${HOME}/.joveler/bash/custom_rc.bashrc"
-fi

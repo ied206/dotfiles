@@ -2,7 +2,7 @@
 #   Hajin Jang
 
 # Source template settings
-if [[ -s "${HOME}/.joveler/zsh/zshenv.zsh" ]]; then
-  source "${HOME}/.joveler/zsh/zshenv.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshenv" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshenv"
 fi
 

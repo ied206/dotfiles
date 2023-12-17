@@ -2,7 +2,7 @@
 #   Hajin Jang
 
 # Source template settings
-if [[ -s "${HOME}/.joveler/zsh/zshrc.zsh" ]]; then
-  source "${HOME}/.joveler/zsh/zshrc.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogin" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogin"
 fi
 

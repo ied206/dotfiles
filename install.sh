@@ -45,13 +45,16 @@ function copy_config {
     conf_filename="${1##*/}"
     dest_filename="${2##*/}"
 
+    mv "${HOME}/${2}" "${HOME}/${2}_bak"
     cp -f "${BASEDIR}/${1}" "${HOME}/${2}"
     if [[ $? -eq 0 ]]; then
         echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}${dest_filename}${tfg_reset}"
+        rm -f "${HOME}/${2}_bak"
         count=$(( count + 1 ))
         return 0
     else
         echo -e "${tfg_boldred}[WARNING]${tfg_reset} Unable to create symlink of ${tfg_yellow}${dest_filename}${tfg_reset}"
+        mv "${HOME}/${2}_bak" "${HOME}/${2}"
         return 1
     fi
 }
@@ -106,7 +109,7 @@ symlink_config "tmux/tmux.conf" ".tmux.conf"
 symlink_config "screen/screen.rc" ".screenrc"
 
 # Install vim config
-symlink_config "vim/vimrc.vim" ".vimrc"
+copy_config "vim/local_vimrc.vim" ".vimrc"
 if [[ $? -eq 0 ]]; then
     vim +PlugInstall +qall
 fi
@@ -121,7 +124,7 @@ install_prezto_prompt "zsh/prezto-prompt/joveler.zsh" "joveler"
 
 # Install bash config
 if [[ ${shell_bash} -eq 1 ]]; then
-    symlink_config "bash/bash.bashrc" ".bashrc"
+    copy_config "bash/local_bashrc.sh" ".bashrc"
 fi
 
 # Report result

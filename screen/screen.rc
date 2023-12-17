@@ -9,3 +9,13 @@ truecolors on
 # Force background color refresh (for vim)
 defbce on
 
+# Keep vertical scroll lines to 5000
+defscrollback 5000
+
+# Change the xterm initialization string from is2=\E[!p\E[?3;4l\E[4l\E>
+# (This fixes the "Aborted because of window size change" konsole symptoms found in bug #134198)
+# https://superuser.com/questions/217066/prevent-gnu-screen-from-resizing-display-size
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+# Always enable scrollback mode
+termcapinfo xterm* ti@:te@
