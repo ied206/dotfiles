@@ -32,6 +32,9 @@ fi
 # Alias for .NET 6+
 alias dotnet-test-verbose="dotnet test -l \"console;verbosity=detailed\""
 
+# Alias for detecting /dev/dri devices
+alias detect-dri="drm_info -j | jq 'with_entries(.value |= .driver.desc)'"
+
 # Shell working directory report
 # https://github.com/Eugeny/tabby/wiki/Shell-working-directory-reporting
 precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }

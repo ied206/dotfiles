@@ -64,7 +64,7 @@ function install_prezto_prompt {
     conf_filepath="${1##*/}"
     dest_filename="${2##*/}"
 
-    if [[ -s "${HOME}/.zprezto" ]]; then
+    if [[ -d "${HOME}/.zprezto" ]]; then
         ln -s -f "${BASEDIR}/${1}" "${HOME}/.zprezto/modules/prompt/functions/prompt_${2}_setup"
         if [[ $? -eq 0 ]]; then
             echo -e "${tfg_boldgreen}[SUCCESS]${tfg_reset} Successfully installed ${tfg_yellow}custom prezto theme${tfg_reset}"
