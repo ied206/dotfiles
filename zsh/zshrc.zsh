@@ -29,6 +29,9 @@ if [[ -s "${HOME}/.local/bin" ]]; then
   export PATH=${PATH}:${HOME}/.local/bin
 fi
 
+# cd to a Windows path (converts with cygpath)
+function cdwin() { cd "$(cygpath -u "$1")"; }
+
 # Alias for .NET 6+
 alias dotnet-test-verbose="dotnet test -l \"console;verbosity=detailed\""
 
