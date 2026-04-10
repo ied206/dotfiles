@@ -8,6 +8,11 @@
 #
 
 #
+# Read .profile
+#
+[[ -f ~/.profile ]] && source ~/.profile
+
+#
 # Browser
 #
 
