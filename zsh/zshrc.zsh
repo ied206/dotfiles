@@ -7,6 +7,11 @@
 #   (Some ssh clients do not advertise 256 color support)
 export TERM=xterm-256color
 
+# Setup EDITOR variables
+export VISUAL=vim
+export EDITOR=vim
+export SYSTEMD_EDITOR=vim
+
 # Source Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
